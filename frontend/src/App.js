@@ -50,11 +50,6 @@ console.log('ERR: ', err);
 });
                     
 }
-
-
-
-
-
 // ----------------------------------------------
 // حذف عنصر واحد
 const deleteTodo=(id) => { 
@@ -70,9 +65,24 @@ const deleteTodo=(id) => {
   console.log('ERR: ', err);
  });
 }
+
+const toggleTodo=(id,newStatus) => { 
+  axios
+  .put(`http://localhost:5000/tasks/${id}/${newStatus}`) 
+ .then((response) => {
+   // console.log ('RESPONSE: ', response);
+  console.log('DATA:' , response.data);
+  getData()
+
+ })
+ .catch((err) => {
+  console.log('ERR: ', err);
+ });
+}
+
  const mapOverTasks=tasks.map((taskObj,i)=>(
   //  here the value return from Todo 
-   <Todo key={i} task={taskObj} deleteTodo={deleteTodo} />
+   <Todo key={i} task={taskObj} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
  )
 //  
 //  الكود اللي تحت اذا ابي ارجع القيمة من APP
