@@ -4,4 +4,10 @@
 .Todo{
   border:blue 3px solid;
 }
+.Todo span{
+  margin: 0px 10px 0px 10px;
+}
+.Add{
+  border:green 3px solid;
+}
 
