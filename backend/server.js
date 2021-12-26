@@ -4,6 +4,7 @@ const app = express();
 
 const db = require("./db");
 const Todo = require("./todo");
+const User = require("./user");
 // console.log(Todo)
 app.use(express.json());
 app.use(cors());
@@ -16,6 +17,8 @@ app.get("/", (req, res) => {
 // CRUD: Create, Read, Update, Delete.
 // express:get, post, delete, put,.
 // mongoose: وسيط بين (MongoDB)وبين expressمثل العمليات جلب البانات اضافة حذف تحديث الداخليه لexpress.
+
+// الاسم الذي يطلق على اللي تحت اسمه (endpoint)
 
 // جلب جميع البيانات المخزنة في قاعدة البيانات
 app.get("/tasks", (req, res) => {
@@ -81,7 +84,7 @@ app.post("/tasks", (req, res) => {
 app.delete("/tasks/:id", (req, res) => {
   console.log("25:", req.params.id);
 
-  Todo.deleteOne({ _id: req.params.id }, (err, deleteObj) => {
+  Todo.deleteOne({ _id:req.params.id }, (err, deleteObj) => {
     if (err) {
       console.log("ERROR: ", err);
     } else {
@@ -92,7 +95,7 @@ app.delete("/tasks/:id", (req, res) => {
   });
 });
 
-app.delete("/tasks", (req, res) => {
+app.delete("/tasks/", (req, res) => {
   // console.log("37:", req.params.id);
   Todo.deleteMany({ isCompleted: true }, (err, deleteObj)=> {
      if (err) {
@@ -146,6 +149,49 @@ app.put("/tasks/:id/:isCompleted", (req, res) => {
   )
 });
 
+
+// endpoint to the module User
+// تسجيل مستخدم جديد
+app.post("/users/register", (req, res) => {
+  User.create(req.body, (err, newUser) => {
+    if (err) {
+      // console.log("ERROR: ", err);
+      res.status(400).json({ message: "This email already taken" });
+    } else {
+      // res.status(201).json(newUser);
+      res.status(201).json({ message: "Create New User Successfully" });
+    }
+  });
+});
+// التاكد من التسجيل
+app.post("/users/login", (req, res) => {
+  User.find({ email: req.body.email }, (err, arrUserFound) => {
+    if (err) {
+      console.log("ERROR: ", err);
+    } else {
+      // console.log(arrUserFound);
+      if (arrUserFound.length === 1) {
+        // we found the user
+        if (req.body.password === arrUserFound[0].password) {
+          // password correct
+          res.status(200).json({
+            message: "Login Successfully",
+            username: arrUserFound[0].username,
+          });
+        } else {
+          // password incorrect
+          res.status(400).json({
+            message: "Wrong password",
+          });
+        }
+      } else {
+        res.status(404).json({
+          message: "The email entered is not registered",
+        });
+      }
+    }
+  });
+});
 app.listen(5000, () => {
   console.log("SERVER IS WORKING");
 });
