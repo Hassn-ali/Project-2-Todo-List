@@ -3,6 +3,7 @@ import './App.css'
 import axios from 'axios'
 import Todo from './components/Todo'
 import Add from './components/Add'
+import Register from "./components/Register";
 
 export default function App() {
  
@@ -61,6 +62,7 @@ const deleteTodo=(id) => {
   getData()
 
  })
+ 
  .catch((err) => {
   console.log('ERR: ', err);
  });
@@ -145,7 +147,14 @@ const filterData = (status) => {
         GET PENDING
       </button>
   
-{mapOverTasks}
+
+
+{/* مهم */}
+{/* {mapOverTasks} */}
+
+<Register/>
+
+
 
 
     </div>

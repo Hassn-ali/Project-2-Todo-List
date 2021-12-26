@@ -1,13 +1,13 @@
 .App {
   border: red 5px solid;
 }
-.Todo{
+.Todo .Login{
   border:blue 3px solid;
 }
 .Todo span{
   margin: 0px 10px 0px 10px;
 }
-.Add{
+.Add .Register{
   border:green 3px solid;
 }
 
