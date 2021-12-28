@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Register() {
-  const [email, setEmail] = useState("m.jouza7@yahoo.com");
-  const [password, setPassword] = useState("123");
-  const [username, setUsername] = useState("Jouza 7");
+   const [email, setEmail] = useState(""/*m.jouza7@yahoo.com*/);
+  const [password, setPassword] = useState(""/*123*/);
+  const [username, setUsername] = useState(""/*Jouza 7*/);
 
   const registerFunc = (e) => {
+  //  نكتب الامر هذا لاني ما ابي الصفحة تتحدث وتطلع لي النتيجة 
     e.preventDefault();
+
     console.log("reg");
     const newUser = {
       // ES6
