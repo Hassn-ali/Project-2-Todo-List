@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// (as)نحط الكلمة ذي اذا نبي نغير الاسم وبعده مسافة والاسم الجديد 
+// (as)نحط الكلمة ذي اذا نبي نغير الاسم وبعده مسافة والاسم الجديد  
 import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
 import App from './App';
