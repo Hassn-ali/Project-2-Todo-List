@@ -130,7 +130,7 @@ export default function App() {
   return (
     <div className="">
       {/* <p>app</p> */}
-      <p>Name: {username}</p>
+      {/* <p>Name: {username}</p> */}
 
       {/* navbar  */}
     <nav className="navbar navbar-expand-lg navbar-light bg-light m-3">

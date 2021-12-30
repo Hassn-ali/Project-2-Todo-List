@@ -178,6 +178,7 @@ app.post("/users/login", (req, res) => {
           res.status(200).json({
             message: "Login Successfully",
             username: arrUserFound[0].username,
+          
           });
         } else {
           // password incorrect

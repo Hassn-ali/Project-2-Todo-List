@@ -1,7 +1,7 @@
 .App {
   border: red 5px solid;
 }
-.Todo ,.Login{
+.Todo {
   border:blue 3px solid;
 }
 .Todo span{
@@ -15,3 +15,6 @@
   border:purple 3px solid;
 }
 
+.Login form{
+  width: 75%;
+}
