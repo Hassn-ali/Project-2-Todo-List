@@ -25,7 +25,7 @@ yarn-error.log*
 # ----------ما احتاج احفظ اي تقدم هنا 
 public
 App.test.js
-index.js
+# index.js
 logo.svg
 reportWebVitals.js
 setupTests.js

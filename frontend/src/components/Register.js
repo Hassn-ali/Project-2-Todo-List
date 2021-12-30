@@ -51,6 +51,7 @@ export default function Register() {
             setPassword(e.target.value);
           }}
           value={password}
+          class="form-control"
         />
         <br />
         <label htmlFor="username">Username:</label>
@@ -61,9 +62,10 @@ export default function Register() {
             setUsername(e.target.value);
           }}
           value={username}
+          class="form-control" 
         />
         <br />
-        <input type="submit" value="Register" onClick={registerFunc} />
+        <input type="submit" value="Register" onClick={registerFunc} class="btn btn-secondary" />
         <Link to='/login'>Have An Account?</Link>
       </form>
     </div>
